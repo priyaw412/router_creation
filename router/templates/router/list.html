@@ -5,6 +5,7 @@
     <tr>
     <th>Sapid</th>
     <th>Hostname</th>
+        <th>Loopback</th>
     <th>View</th>
     <th>Edit</th>
     <th>Delete</th>
@@ -13,11 +14,12 @@
 <tbody>
     {% for device in object_list %}
     <tr>
+        <td>{{ device.sapid }}</td>
     <td>{{ device.hostname }}</td>
     <td>{{ device.loopback }}</td>
     <td><a href="{% url "router_view" device.id %}">view</a></td>
-    <td><a href="{% url "router_list" device.id %}">edit</a></td>
-    <td><a href="{% url "router_list" device.id %}">delete</a></td>
+    <td><a href="{% url "router_edit" device.id %}">edit</a></td>
+    <td><a href="{% url "router_delete" device.id %}">delete</a></td>
     </tr>
     {% endfor %}
 </tbody>
